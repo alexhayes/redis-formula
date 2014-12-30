@@ -13,8 +13,8 @@ bind {{ redis['bind'] }}
 unixsocket {{ redis['unixsocket'] }}
 unixsocketperm {{ redis.get('unixsocketperm', 755) }}
 {% endif -%}
-
-tcp-backlog {{ redis.get('tcp-backlog', 511) }}
+# XXX: Doesn't work on redis 2.8.5 on ubuntu 12.04LTS
+#tcp-backlog {{ redis.get('tcp-backlog', 511) }}
 tcp-keepalive {{ redis.get('tcp-keepalive', 0) }}
 
 loglevel {{ redis.get('loglevel', 'notice') }}
